@@ -1,26 +1,107 @@
 //DATA. Holds all my profiles I'm trying to match with
 
-let friendArray = [
-    {
-        "name":"Joe",
+let friendsArray = [
+
+      {
+        "name":"The Competitor",
         "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
         "scores":[
-            5,
             1,
-            4,
-            4,
-            5,
             1,
-            2,
-            5,
-            4,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
             1
           ]
-      }
+      },
+      {
+        "name":"The Puzzle Master",
+        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
+      {
+        "name":"The Social Gamer",
+        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
+      {
+        "name":"The Alpha Gamer",
+        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
+      {
+        "name":"The Omni-Gamer",
+        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
+      {
+        "name":"The Indifferent Gamer",
+        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "scores":[
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+      },
   ];
 
   
   
   // Note how we export the array. This makes it accessible to other files using require.
-  module.exports = friendArray;
+  module.exports = friendsArray;
   

@@ -1,3 +1,4 @@
+let path = require('path');
 //Require the Friend Array from friends.js
 let friendData = require("../data/friends");
 
@@ -9,9 +10,49 @@ module.exports = function (app) {
         res.json(friendData);
     });
 
-    // API POST Requests to save down to the friendData array)
-    app.post("/api/friends", function (req, res) {
-        friendData.push(req.body);
-        res.json(true);
-    });
+
+	// API POST a new friend entry
+	app.post("/api/friends", function(req, res) {
+        // Capture the user input object
+        
+		let userInput = req.body;
+		console.log('userInput = ' + JSON.stringify(userInput));
+
+		let userResponses = userInput.scores;
+		console.log('userResponses = ' + userResponses);
+
+		// Compute best friend match
+		let matchName = '';
+		let matchImage = '';
+		let totalDifference = 10000; // Make the initial value big for comparison
+
+		// Examine all existing friends in the list
+		for (let i = 0; i < friendData.length; i++) {
+			// console.log('friend = ' + JSON.stringify(friend[i]));
+
+			// Compute differenes for each question
+			let diff = 0;
+			for (let j = 0; j < userResponses.length; j++) {
+				diff += Math.abs(friendData[i].scores[j] - userResponses[j]);
+			}
+			// console.log('diff = ' + diff);
+
+			// If lowest difference, record the friend match
+			if (diff < totalDifference) {
+				// console.log('Closest match found = ' + diff);
+				// console.log('Friend name = ' + friendData[i].name);
+				// console.log('Friend image = ' + friendData[i].photo);
+
+				totalDifference = diff;
+				matchName = friendData[i].name;
+				matchImage = friendData[i].photo;
+			}
+		}
+
+		// Add new user
+		friendData.push(userInput);
+
+		// Send appropriate response
+		res.json({status: 'OK', matchName: matchName, matchImage: matchImage});
+	});
 };
