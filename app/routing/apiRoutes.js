@@ -35,14 +35,9 @@ module.exports = function (app) {
 			for (let j = 0; j < userResponses.length; j++) {
 				diff += Math.abs(friendData[i].scores[j] - userResponses[j]);
 			}
-			// console.log('diff = ' + diff);
-
-			// If lowest difference, record the friend match
+		
 			if (diff < totalDifference) {
-				// console.log('Closest match found = ' + diff);
-				// console.log('Friend name = ' + friendData[i].name);
-				// console.log('Friend image = ' + friendData[i].photo);
-
+		
 				totalDifference = diff;
 				matchName = friendData[i].name;
 				matchImage = friendData[i].photo;
