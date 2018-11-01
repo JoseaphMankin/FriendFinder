@@ -24,7 +24,8 @@ module.exports = function (app) {
 		// Compute best friend match
 		let matchName = '';
 		let matchImage = '';
-		let totalDifference = 10000; // Make the initial value big for comparison
+		//this insures the first test is a pass. (see second for loop below)
+		let totalDifference = 999; 
 
 		// Examine all existing friends in the list
 		for (let i = 0; i < friendData.length; i++) {
