@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Survey</title>
 
 	<!-- Link to the jQuery Library -->
-  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  	<!-- Including Font Awesome Icons -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Including Font Awesome Icons -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified Materialize CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link rel="stylesheet" href="style.css">
 	<!-- Compiled and minified Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
-          
+
 </head>
 
 <body>
@@ -33,7 +34,7 @@
 	</header>
 
 	<main>
-        <br>
+		<br>
 		<div class="container">
 			<div class="row">
 				<div class="col s12 light-green lighten-5 z-depth-5 mainpanel">
@@ -188,8 +189,8 @@
 						<div>
 							<button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit Responses
 								<i class="material-icons right">send</i>
-                            </button>
-                            <br><br>
+							</button>
+							<br><br>
 						</div>
 					</div>
 				</div>
@@ -205,6 +206,7 @@
 			<div class="divider"></div>
 			<h5 id="userMatch"></h5>
 			<img id="userMatchImage" class="materialboxed" width="650" src="">
+			<p id="summary"></p>
 		</div>
 		<div class="modal-footer">
 			<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Take the Survey Again!</a>
@@ -212,7 +214,7 @@
 	</div>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
+		$(document).ready(function () {
 			$('select').material_select();
 			$('.modal').modal({
 				dismissible: false, // Modal can be dismissed by clicking outside of the modal
@@ -224,13 +226,13 @@
 			});
 		});
 		// Activate submit button
-		$('#submitButton').on('click', function(event) {
+		$('#submitButton').on('click', function (event) {
 			event.preventDefault();
 			// Gather user inputs
 			let userInput = {
 				name: $('#userName').val().trim(),
 				photo: $('#userPhoto').val().trim(),
-				scores:[
+				scores: [
 					$('#question1').val().trim(),
 					$('#question2').val().trim(),
 					$('#question3').val().trim(),
@@ -246,15 +248,47 @@
 			// console.log('userInput = ' + JSON.stringify(userInput));
 			// Add user inputs to friends list
 			$.post("/api/friends", userInput)
-      		.done(function(data) {
-      			// console.log('response = ' + JSON.stringify(data));
-      			// Set the name and image values of friend match
-      			$('#userMatch').html(data.matchName);
-		    	$("#userMatchImage").attr("src", data.matchImage);
-		    	// Pop open the modal dialog
-      			$('#modal1').modal('open');
-      		});
+				.done(function (data) {
+					// console.log('response = ' + JSON.stringify(data));
+					// Set the name and image values of friend match
+					$("#userMatch").html(data.matchName);
+					$("#userMatchImage").attr("src", data.matchImage);
+
+					switch (data.matchName) {
+						case "The Competitor":
+							$("#summary").html("Competitors play games for the thrill of victory. They enjoy outwitting, outscoring, and outplaying their opponents. Unfortunately, they may lose interest in a game in which they have no chance of winning. For this reason, games they play must have some sort of catch-up mechanic, or at least give every player the feeling that they have a chance to win." 
+							+"<br><br>Best Experience: Playing to win; gets most pleasure from victory."
+							+"<br>Worst Experience: Losing with no chance to catch up." 
+							+"<br>Games for Competitors: Power Grid, Formula D, Lords of Vegas");
+							break;
+						case "The Puzzle Master":
+						$("#summary").html("Puzzlers enjoy games that they can figure out. Their preferred games may be more on the complex side, as they enjoy parsing out how the game works and using that understanding to maximize efficiency and come up with the ideal move. Unfortunately, this desire to figure out and “solve” the game means they will be less likely to enjoy games with elements of chaos and randomness." 
+							+"<br><br>Best Experience: Figuring out how the game works; feeling clever and efficient."
+							+"<br>Worst Experience: Games that they determine can’t be solved or are too random." 
+							+"<br>Games for Puzzlers: Blokus, Caverna, Five Tribes");
+							break;
+						case "The Social Gamer":
+						$("#summary").html("Social Gamers enjoy board gaming for the social interaction that it provides. They may enjoy games that require players to interact. Social Gamers generally enjoy party games, and games that actively engage all the players. Unfortunately, this means they may have a bad experience if they play “multi-player solitaire” games, or when they can tell that people around them are having a miserable time. Social Gamers depend on others to have a good time." 
+							+"<br><br>Best Experience: The social interaction; being actively engaged with other players."
+							+"<br>Worst Experience: Games with no player interaction; games where other people are clearly not enjoying themselves." 
+							+"<br>Games for Social Gamers: Spyfall, The Resistance, Ca$h ‘n Gun$");
+							break;
+						case "The Omni-Gamer":
+						$("#summary").html("Omni-Gamers are the kind of gamers who enjoy a little bit of everything. They’ll rarely turn down a play and will generally try to have a good time with anything. The downside of an omni-gamer is that while they may exhibit all the positive traits of the other gamers, they may also have a bad experience for any of the above reasons." 
+							+"<br><br>Best Experience: A mix of all of the above, depending on the situation."
+							+"<br>Worst Experience: A mix of all of the above, depending on the situation." 
+							+"<br>Games for Omni-Gamers: Just about anything.");
+							break;
+						default:
+							break;
+					}
+
+
+					// Pop open the modal dialog
+					$('#modal1').modal('open');
+				});
 		});
 	</script>
 </body>
+
 </html>
