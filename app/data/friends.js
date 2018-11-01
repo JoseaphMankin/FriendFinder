@@ -5,7 +5,7 @@ let friendsArray = [
 
       {
         "name":"The Competitor",
-        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "photo":"https://images.unsplash.com/photo-1529699310859-b163e33e4556?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=051fb949c80bd8486fde8477afadde3f&auto=format&fit=crop&w=822&q=80",
         "scores":[
             5,
             2,
@@ -21,7 +21,7 @@ let friendsArray = [
       },
       {
         "name":"The Puzzle Master",
-        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "photo":"https://images.unsplash.com/photo-1524086496832-aa348741b7b9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ab20fedf99c32ee99239eb0f8e8e93b5&auto=format&fit=crop&w=1131&q=80",
         "scores":[
             4,
             1,
@@ -37,7 +37,7 @@ let friendsArray = [
       },
       {
         "name":"The Social Gamer",
-        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "photo":"https://images.unsplash.com/photo-1530328411047-7063dbd29029?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=667cffd8b82d7b73a8186a58a020eb88&auto=format&fit=crop&w=1051&q=80",
         "scores":[
             1,
             5,
@@ -53,7 +53,7 @@ let friendsArray = [
       },
       {
         "name":"The Omni-Gamer",
-        "photo":"https://images.unsplash.com/photo-1506954673998-b077f05b13c7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cbd9462960235b41245689f258d125a8&auto=format&fit=crop&w=1491&q=80",
+        "photo":"https://www.meeplemountain.com/wp-content/uploads/2017/05/the-omni-gamer.jpg",
         "scores":[
             3,
             3,
