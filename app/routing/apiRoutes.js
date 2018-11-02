@@ -21,13 +21,13 @@ module.exports = function (app) {
 		let userResponses = userInput.scores;
 		console.log('userResponses = ' + userResponses);
 
-		// Compute best friend match
+		// LOGIC FOR PICKING BEST MATCH. 
 		let matchName = '';
 		let matchImage = '';
-		//this insures the first test is a pass. (see second for loop below)
+		//This insures the first test is a pass. (see second for loop below)
 		let totalDifference = 999; 
 
-		// Examine all existing friends in the list
+		// Looping through two arrays means using two for loops:
 		for (let i = 0; i < friendData.length; i++) {
 			// console.log('friend = ' + JSON.stringify(friend[i]));
 

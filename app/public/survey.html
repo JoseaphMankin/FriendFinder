@@ -217,12 +217,12 @@
 		$(document).ready(function () {
 			$('select').material_select();
 			$('.modal').modal({
-				dismissible: false, // Modal can be dismissed by clicking outside of the modal
-				opacity: .5, // Opacity of modal background
-				inDuration: 300, // Transition in duration
-				outDuration: 200, // Transition out duration
-				startingTop: '4%', // Starting top style attribute
-				endingTop: '10%' // Ending top style attribute
+				dismissible: false,
+				opacity: .5, 
+				inDuration: 300, 
+				outDuration: 200, 
+				startingTop: '4%',
+				endingTop: '10%'
 			});
 		});
 		// Activate submit button
@@ -245,11 +245,9 @@
 					$('#question10').val().trim()
 				]
 			};
-			// console.log('userInput = ' + JSON.stringify(userInput));
 			// Add user inputs to friends list
 			$.post("/api/friends", userInput)
 				.done(function (data) {
-					// console.log('response = ' + JSON.stringify(data));
 					// Set the name and image values of friend match
 					$("#userMatch").html(data.matchName);
 					$("#userMatchImage").attr("src", data.matchImage);
@@ -282,7 +280,6 @@
 						default:
 							break;
 					}
-
 
 					// Pop open the modal dialog
 					$('#modal1').modal('open');
