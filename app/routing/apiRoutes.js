@@ -24,19 +24,18 @@ module.exports = function (app) {
 		// LOGIC FOR PICKING BEST MATCH. 
 		let matchName = '';
 		let matchImage = '';
-		//This insures the first test is a pass. (see second for loop below)
+		//This insures the first test is a pass. (See second For loop below)
 		let totalDifference = 999; 
 
 		// Looping through two arrays means using two for loops:
 		for (let i = 0; i < friendData.length; i++) {
-			// console.log('friend = ' + JSON.stringify(friend[i]));
 
 			// Compute differenes for each question
 			let diff = 0;
 			for (let j = 0; j < userResponses.length; j++) {
 				diff += Math.abs(friendData[i].scores[j] - userResponses[j]);
 			}
-		
+			//Keeps track of the "lowest" difference match as the loop runs. 
 			if (diff < totalDifference) {
 		
 				totalDifference = diff;

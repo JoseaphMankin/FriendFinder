@@ -1,5 +1,4 @@
 //DATA. Holds all my profiles I'm trying to match with
-//FS WRITE TO GET INTO THIS -- Look into that dum dum
 
 let friendsArray = [
 
